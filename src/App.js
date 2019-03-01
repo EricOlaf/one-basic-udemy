@@ -6,13 +6,18 @@ import UO from "./components/UserOutput/UserOutput";
 
 class App extends Component {
   state = {
-    userName: ""
+    userName: "ElGaupo"
+  };
+
+  nameHandler = e => {
+    this.setState({ userName: e });
   };
   render() {
+    const { userName } = this.state;
     return (
       <div className="App">
-        <UI />
-        <UO />
+        <UI nh={this.nameHandler} name={userName} />
+        <UO name={userName} />
         <UO />
       </div>
     );
